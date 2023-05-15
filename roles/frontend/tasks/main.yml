@@ -10,16 +10,16 @@
 
 - name: remove old content
   ansible.builtin.file:
-    path: /usr/share/nginx/html/*
+    path: /usr/share/nginx/html
     state: absent
 
 - name: create app directory
   ansible.builtin.file:
-    path: /usr/share/nginx/html/*
+    path: /usr/share/nginx/html
     state: directory
 
 - name: download app content
   ansible.builtin.unarchive:
-    src: https://roboshop-artifacts.s3.amazonaws.com
-    dest: /usr/share/nginx/html/*
+    src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+    dest: /usr/share/nginx/html
     remote_src: yes
